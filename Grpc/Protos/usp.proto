@@ -1,0 +1,32 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Poc.MediumWorker.Contracts";
+
+package usp;
+
+service UspService {
+  rpc CreateTenant (CreateTenantRequest) returns (CreateTenantReply);
+  rpc GetTenant (GetTenantRequest) returns (GetTenantReply);
+}
+
+message CreateTenantRequest {
+  string tenantKey = 1;
+  string name = 2;
+}
+
+message CreateTenantReply {
+  string id = 1;
+  string tenantKey = 2;
+  string name = 3;
+}
+
+message GetTenantRequest {
+  string tenantKey = 1;
+}
+
+message GetTenantReply {
+  string id = 1;
+  string tenantKey = 2;
+  string name = 3;
+  string createdAt = 4;
+}
